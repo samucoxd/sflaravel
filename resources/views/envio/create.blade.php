@@ -37,7 +37,7 @@
         </select>
 
         <!-- guia -->
-        <input type="text" id="" name="idtransporte" class="form-control mb-4" placeholder="Guia" required>
+        <input type="text" id="" name="guia" class="form-control mb-4" placeholder="Guia" required>
 
         <!-- Sign in button -->
         <button class="btn btn-info btn-block" type="submit">Guardar</button>

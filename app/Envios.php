@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Envios extends Model
 {
     protected $primaryKey = 'idenvios';
+    protected $table = 'envioss';
 
     static function datosTransporte()
     {

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\EnviosStoreRequest;
 use App\Envios;
 
 
@@ -39,7 +40,16 @@ class EnviosController extends Controller
      */
     public function store(Request $request)
     {
-        return "envios store";
+        $envios = new Envios();
+        $envios->fecha = $request->fecha;
+        $envios->hora = $request->hora;
+        $envios->idtransporte = $request->idtransporte;
+        $envios->iddestino = $request->iddestino;
+        $envios->guia = $request->guia;
+        $envios->idpedido = $request->idpedido;
+        $envios->save();
+        //$Envios = Envios::create($request->all());
+        return redirect()->route('envio.index')->with('mensaje', 'Registro Guardado Correctamente');
     }
 
     /**

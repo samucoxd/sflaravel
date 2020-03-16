@@ -28,6 +28,7 @@ Route::resource('destino', 'DestinoController');
 Route::resource('personalalmacen', 'PersonalalmacenController');
 Route::resource('pedido', 'PedidoController')->only('index', 'create', 'store');
 Route::resource('envio', 'EnviosController');
+Route::resource('fallo', 'FalloController')->only('index', 'create');
 
 Route::get('/cancelar/{nombre}', function($nombre) {
     return redirect()->route($nombre.'.index')->with('cancelar', 'Registro Cancelado');

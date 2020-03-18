@@ -7,9 +7,10 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 $factory->define(Cliente::class, function (Faker $faker) {
+    static $increment = 0;
     $nombre = $faker->name;
     return [
-        'idcliente' =>  $faker->unique()->biasedNumberBetween(1,10),
+        'idcliente' =>  $increment++,
         'nombre'    =>  $nombre,
         'zona'      =>  $faker->country,
     ];

@@ -7,11 +7,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Pedido::class, function (Faker $faker){
     static $increment = 10000;
+    static $increment2 = 0;
     return [
         'idnota'    =>  $increment++,
         'idfac'     =>  $faker->unique()->numberBetween(10000,99999),
         'fecha'     =>  $faker->date(),
-        'cliente'   =>  $faker->unique()->numberBetween(1, App\Cliente::count()),
-        'vendedor'  =>  $faker->unique()->numberBetween(1, App\Vendedor::count()),
+        'cliente'   =>  $increment2++,
+        'vendedor'  =>  $increment2,
     ];
 });

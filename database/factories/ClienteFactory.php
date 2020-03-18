@@ -4,11 +4,12 @@
 
 use App\Cliente;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 $factory->define(Cliente::class, function (Faker $faker) {
     $nombre = $faker->name;
     return [
-        'idcliente' =>  $faker->unique()->numberBetween(1,100),
+        'idcliente' =>  $faker->unique()->biasedNumberBetween(1,10),
         'nombre'    =>  $nombre,
         'zona'      =>  $faker->country,
     ];

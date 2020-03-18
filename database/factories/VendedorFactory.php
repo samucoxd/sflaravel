@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Vendedor::class, function (Faker $faker) {
     $nombre = $faker->name;
     return [
-        'idvendedor'    => $faker->unique()->numberBetween(1,30),
+        'idvendedor'    => $faker->unique()->biasedNumberBetween(1,10),
         'nombre'        => $nombre,
     ];
 });

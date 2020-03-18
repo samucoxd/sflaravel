@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Destino::class, function (Faker $faker) {
     $nombre = $faker->name;
     return [
-        'iddestino' =>  $faker->unique()->numberBetween(1,30),
+        'iddestino' =>  $faker->unique()->biasedNumberBetween(1,10),
         'nombre'    =>  $nombre,
         'ciudad'    =>  $faker->country,
     ];

@@ -11,13 +11,13 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route; 
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -29,6 +29,7 @@ Route::resource('personalalmacen', 'PersonalalmacenController');
 Route::resource('pedido', 'PedidoController')->only('index', 'create', 'store');
 Route::resource('envio', 'EnviosController');
 Route::resource('fallo', 'FalloController')->only('index', 'create');
+Route::resource('despachador', 'DespachadorController');
 
 Route::get('/cancelar/{nombre}', function($nombre) {
     return redirect()->route($nombre.'.index')->with('cancelar', 'Registro Cancelado');

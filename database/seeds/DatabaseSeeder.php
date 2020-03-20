@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PersonalAlmacenTableSeeder::class,
             PedidoTableSeeder::class,
             EnvioTableSeeder::class,
+            DespachadorTableSeeders::class,
             ]);
         // $this->call(UsersTableSeeder::class);
     }

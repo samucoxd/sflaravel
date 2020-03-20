@@ -30,7 +30,7 @@ class DespachadorController extends Controller
      */
     public function create()
     {
-        //
+        return view('despachador.create');
     }
 
     /**
@@ -41,7 +41,11 @@ class DespachadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Despachador = new Despachador;
+        $Despachador->iddespachador = $request->codigo;
+        $Despachador->nombre    = $request->nombre;
+        $Despachador->save();
+        return redirect()->route('despachador.index')->with('mensaje', 'Registro Guardado Correctamente');
     }
 
     /**
@@ -50,9 +54,10 @@ class DespachadorController extends Controller
      * @param  \App\Despachador  $despachador
      * @return \Illuminate\Http\Response
      */
-    public function show(Despachador $despachador)
+    public function show($id)
     {
-        //
+        $Despachador = Despachador::findOrFail($id);
+        return view('despachador.show', compact('Despachador'));
     }
 
     /**
@@ -74,9 +79,13 @@ class DespachadorController extends Controller
      * @param  \App\Despachador  $despachador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Despachador $despachador)
+    public function update(Request $request, $id)
     {
-        //
+        $Despachador = Despachador::findOrFail($id);
+        $Despachador->iddespachador = $request->codigo;
+        $Despachador->nombre        = $request->nombre;
+        $Despachador->save();
+        return redirect()->route('despachador.index')->with('mensaje', 'Registro Editado Correctamente');
     }
 
     /**

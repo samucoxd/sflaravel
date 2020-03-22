@@ -30,6 +30,8 @@ Route::resource('pedido', 'PedidoController')->only('index', 'create', 'store');
 Route::resource('envio', 'EnviosController');
 Route::resource('fallo', 'FalloController')->only('index', 'create');
 Route::resource('despachador', 'DespachadorController');
+Route::get('cliente.excel', 'ClienteController@excel');
+Route::post('cliente.import.excel', 'ClienteController@importExcel');
 
 Route::get('/cancelar/{nombre}', function($nombre) {
     return redirect()->route($nombre.'.index')->with('cancelar', 'Registro Cancelado');

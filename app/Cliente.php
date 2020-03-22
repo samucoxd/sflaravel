@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $primaryKey = 'idcliente';
+    protected $fillable = ['idcliente', 'nombre'];
 }

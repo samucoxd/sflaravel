@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Cliente;
+use App\Imports\ClienteImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClienteController extends Controller
 {
@@ -101,4 +103,18 @@ class ClienteController extends Controller
     {
         //
     }
+
+    public function excel()
+    {
+        return view('cliente.excel');
+    }
+
+    public function importExcel(Request $request)
+    {
+        $file   =   $request->file('file');
+        Excel::import(new ClienteImport, $file);
+        return back()->with('mensaje', 'Impotacion Correcta de Clientes');
+    }
+
+
 }

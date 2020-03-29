@@ -25,9 +25,9 @@ class CreateDespachoTable extends Migration
             $table->increments('iddespacho');
             $table->date('fecha')->nullable()->default(null);
             $table->time('hora')->nullable()->default(null);
-            $table->integer('iddespachador')->nullable($value = false);
+            $table->integer('iddespachador')->nullable($value = true);
             $table->integer('idpedido')->nullable($value = false);
-            $table->string('estado', 45)->nullable()->default(null);
+            $table->string('estado', 45)->nullable()->default('ABIERTO');
             $table->timestamps();
 
             $table->unique(["iddespachador", "idpedido"], 'index55');

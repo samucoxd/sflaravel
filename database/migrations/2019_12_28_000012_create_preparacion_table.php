@@ -25,12 +25,12 @@ class CreatePreparacionTable extends Migration
             $table->increments('idpreparacion');
             $table->date('fecha')->nullable()->default(null);
             $table->time('hora')->nullable()->default(null);
-            $table->integer('picking')->nullable($value = false);
-            $table->integer('revision')->nullable($value = false);
-            $table->integer('embalaje')->nullable($value = false);
-            $table->integer('fallo')->nullable($value = false);
+            $table->integer('picking')->nullable($value = true);
+            $table->integer('revision')->nullable($value = true);
+            $table->integer('embalaje')->nullable($value = true);
+            $table->integer('fallo')->nullable($value = true);
             $table->integer('idpedido')->nullable($value = false);
-            $table->string('estado', 45)->nullable()->default(null);
+            $table->string('estado', 45)->nullable()->default('ABIERTO');
             $table->timestamps();
 
             $table->unique(["picking", "revision", "embalaje", "fallo", "idpedido"], 'index44');

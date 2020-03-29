@@ -8,10 +8,9 @@ use Illuminate\Support\Str;
 
 $factory->define(Cliente::class, function (Faker $faker) {
     static $increment = 0;
-    $nombre = $faker->name;
     return [
         'idcliente' =>  $increment++,
-        'nombre'    =>  $nombre,
-        'zona'      =>  $faker->country,
+        'nombre'    =>  $faker->firstName(),
+        'zona'      =>  $faker->firstName(),
     ];
 });
